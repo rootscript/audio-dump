@@ -20,6 +20,8 @@ Noise can easily get through a transformer, both in transverse and common modes.
 Common mode noise is any noise signal that is common to both the active (hot) and neutral mains leads. This is not coupled through the transformer magnetically, but capacitively. The higher the capacitance between primary and secondary windings, the more common mode noise will get through to the amplifier. **The much loved toroidal transformer is much worse than conventional 'EI' (Ee-Eye) lamination transformers in this respect because of the large inter-winding capacitance. An electrostatic shield will help, but these are uncommon in mass produced toroidal transformers. The conventional transformer is usually better, and by using side-by-side windings instead of concentric windings, common mode noise can be reduced by an order of magnitude.**
 
 ---
+### Notes gathered from forums:
+
 As I understand it toroidals have lower magnetic leakage but higher inter winding capacitance. That makes them prone to slightly higher "noise" in the 60hz range. They can also be lighter for a given power compared to split bobbin transformers.
 
 ---
