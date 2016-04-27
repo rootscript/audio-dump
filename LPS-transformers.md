@@ -27,10 +27,9 @@ Maybe my comment about being distracted by shiny objects could be misunderstood.
 Toroidal transformers are a good example. There was a time it was implied, and to some degree still is as evidenced by this thread, that unless the gear has a toroidal transformer it can't possibly be top tier or perform well. That's simply not true. Hence, do not be distracted by shiny objects.
 
 **For dacs and source gear in particular, I'd rate them as follows in terms of suitability (from best to least):**
-
-**R-core**
-**EI core**
-**Toroidal**
+- **R-core**
+- **EI core**
+- **Toroidal**
 
 **R-core have characteristics that are best suited for low level source applications.**
 
