@@ -22,9 +22,7 @@ Common mode noise is any noise signal that is common to both the active (hot) an
 As I understand it toroidals have lower magnetic leakage but higher inter winding capacitance. That makes them prone to slightly higher "noise" in the 60hz range. They can also be lighter for a given power compared to split bobbin transformers.
 
 ---
-Maybe my comment about being distracted by shiny objects could be misunderstood. Just so it might be no misunderstanding, it has nothing to do with price/cost, but everything to do with marketing hype and urban legend, so to speak.
-
-Toroidal transformers are a good example. There was a time it was implied, and to some degree still is as evidenced by this thread, that unless the gear has a toroidal transformer it can't possibly be top tier or perform well. That's simply not true. Hence, do not be distracted by shiny objects.
+Toroidal transformers are a good example of being distracted by shiny objects and marketing hype. There was a time it was implied, and to some degree still is as evidenced by this thread, that unless the gear has a toroidal transformer it can't possibly be top tier or perform well. That's simply not true. Hence, do not be distracted by shiny objects.
 
 **For dacs and source gear in particular, I'd rate them as follows in terms of suitability (from best to least):**
 - **R-core**
