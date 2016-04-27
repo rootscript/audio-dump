@@ -1,6 +1,6 @@
 # gathered information about Linear Power Supply transformers
 
-John Swenson on the benefits of a choke-filtered linear power supply:
+###John Swenson on the benefits of a choke-filtered linear power supply:
 
 The choice to use a costly, custom, electrostatically shielded 100VA R-core transformer is highly beneficial to the JS-2 design.
 Just powering the computer, **the difference—between the R-core and a toroidal transformer in the bass was shocking. And in comparisons powering a DAC or other audio-signal-handling component, the sonic benefits ranged top-to-bottom, cymbals and piano to deep bass.  Plus R-core transformers, due to the gapless construction of the core, are mechanically silent.**
@@ -14,7 +14,8 @@ This is another reason why we like to use the choke-based design. With the choke
 
 ---
 
-Mains noise: Noise can easily get through a transformer, both in transverse and common modes. Transverse noise is any noise or waveform distortion that is effectively superimposed on the incoming AC waveform, and this is coupled through the transformer along with the wanted signal - the mains.
+###Mains noise:
+Noise can easily get through a transformer, both in transverse and common modes. Transverse noise is any noise or waveform distortion that is effectively superimposed on the incoming AC waveform, and this is coupled through the transformer along with the wanted signal - the mains.
 
 Common mode noise is any noise signal that is common to both the active (hot) and neutral mains leads. This is not coupled through the transformer magnetically, but capacitively. The higher the capacitance between primary and secondary windings, the more common mode noise will get through to the amplifier. **The much loved toroidal transformer is much worse than conventional 'EI' (Ee-Eye) lamination transformers in this respect because of the large inter-winding capacitance. An electrostatic shield will help, but these are uncommon in mass produced toroidal transformers. The conventional transformer is usually better, and by using side-by-side windings instead of concentric windings, common mode noise can be reduced by an order of magnitude.**
 
