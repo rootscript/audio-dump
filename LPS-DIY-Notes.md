@@ -24,3 +24,21 @@ Please feel free to add any information you wish here:
 - 1 - (2S) K30a - Silicon N-channel junction FET (.01A, 50V) TO-92
 - 1 - LM336-2.5 - Shunt Regulator Diode Voltage Reference (2.49V) TO-92
 - 1 - NE5534 - Low Noise Operational Amplifier
+
+### Op-Amp Based Linear Regulators
+[link to notes](https://tangentsoft.net/elec/opamp-linreg.html)
+
+####Why DIY a Regulator?
+
+####How Does a Series Linear Regulator Work?
+
+####Sophistication Begins: The Sulzer Regulator
+
+####Sulzer Variations
+
+####Sulzer-Borbely Regulator
+
+####Jung Super Regulator
+
+####Jung 2000 Regulator
+
