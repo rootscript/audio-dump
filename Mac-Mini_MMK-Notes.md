@@ -1,5 +1,25 @@
 #Mac Mini DC-conversion/Linear Fan Controller Kit (MMK)
 
+![image](https://raw.githubusercontent.com/rootscript/audio-dump/master/_LPS-images/Uptone_JS-2/MMK/P1080624.jpeg)
+
+For modern Apple Mac minis (model years 2010, 2011, 2012, and 2014—all the thin ones), our unique Mac mini DC-Conversion / Linear Fan Controller Kit (MMK) performs several functions important to elevating the audio performance of this compact computer.
+
+The MMK converts a Mac mini to operate on external 12V DC power by replacing the computer's stock switch-mode power supply with a circuit board that fits perfectly in the space vacated by the SMPS.  There is no soldering and no cutting of wires required, the procedure is completely reversible, and a toolkit with detailed instructions is provided. The MMK also provides a carefully chosen amount of filtering (a pile of filter caps after a regulated external supply is not good for performance).
+
+Conversion of a Mac mini to accept DC power is not new, and pairing the computer with a high quality external linear power supply is one of the best upgrades you can perform on this popular computer.  So why choose the UpTone MMK? Because it includes the world's first and only linear fan controller circuit for Macintosh computers.
+
+A little background: 3 and 4-wire fan control circuits are used in many modern computers because the cost, size, and heat to include linear DC control (i.e. smoothly varying the voltage to adjust the speed of the fan based on internal temperature) is prohibitive. So the method used is called PWM (pulse width modulation), whereby the voltage sent to the fan is a train of DC pulses. (See the excellent and not hard to understand tech explanation of fan control circuits at: PWM Fan Control.
+
+The trouble with PWM fan circuits is they operate at around 25kHz, and the pulses are high current (we measured them from a Mac mini fan at over 500mA)—not ideal in a computer being optimized for audio. Our unique circuit uses a power opamp, and while we utilize both the tachometer line from the fan and the signal from the motherboard, we completely eliminate the pulses—providing the fan with just smooth and variable DC.
+
+The 12V input connector to the MMK is a high quality 5.5mm x 2.5mm DC barrel jack (center pin positive).
+
+The MMK also has a coaxial/SMA jack for connection of a cable to support the pseudo-Kelvin-sense feedback circuit of the UpTone Audio JS-2 choke-filtered LPS. That circuit eliminates the voltage drop of the DC supply cable and ensures instantaneous voltage regulation right at the computer end regardless of spikes in current demand. [Use of this feature is entirely optional, and the computer and board will function perfectly with a JS-2 or any other quality external DC supply even when nothing is connected to the SMA jack.]
+
+![image](https://raw.githubusercontent.com/rootscript/audio-dump/master/_LPS-images/Uptone_JS-2/MMK/P1080620.jpeg)
+
+##Notes:
+
 The Late 2014 Mac Mini model is MUCH easier to work on than the 2010-2012 units.
 
 Get them with just the PCIe Flash Drive and not the HD or Fusion drive so as not to have any SATA bus drive active. In theory the PCIe Flash drive--being directly connected to the PCIe bus controller--should sound as good as the SD card, just monstrously faster. Though just like the RAM in a computer, there is a LOT of high-speed switching going on and the PCIe Flash Drive could have greater emissions.
@@ -7,15 +27,6 @@ Get them with just the PCIe Flash Drive and not the HD or Fusion drive so as not
 I do think that avoiding the SATA bus is very much a part of what makes the SD card trick work so well for SQ. So the PCIe Flash should sound very good.
 
 Network shared storage and a BlueJeans/Belden Cat6a cable is my recommendation for full music library storage and playback. Thus an optimal 2014 Mac mini would have just a PCIe Flash drive and the only attached cables would be a DC cable for power (got to ditch the SMPS and PWM fan pulses!), the USB cable to the DAC, and an Ethernet cable (bypass the EN switch or use a fiber optical LAN isolator).
-
-
-
-
-
-
-
-
-
 
 ##Links:
 [link #664](http://www.computeraudiophile.com/f27-uptone-audio-sponsored/attention-current-mac-mini-users-boot-mavericks-sd-card-load-ramdisk-dismount-your-internal-sata-drives-and-pour-drink-musicians-walking-out-your-speakers-18159/index27.html#post513700)
@@ -30,6 +41,8 @@ Network shared storage and a BlueJeans/Belden Cat6a cable is my recommendation f
 
 #Uptone JS-2 Linear Power Supply
 
+![image](https://raw.githubusercontent.com/rootscript/audio-dump/master/_LPS-images/Uptone_JS-2/Mac-Mini_JS-2_MMK.jpg)
+
 Dual-output, choke-filtered linear power supply with four user-selectable DC output voltages.
 
 Two independently adjustable, separately regulated outputs; Voltage choices are user set from the back panel: 5V, 7V, 9V, or 12V.  
@@ -37,6 +50,8 @@ Guaranteed current capability is 5 amps continuous from either output at any vol
 (Up to 6.8 amps split between outputs, depending upon DC voltage combination; Instantaneous capability of up to 10A).
 User configurable for worldwide operation at 100/120/220/230/240 volts AC.
 Dimensions: 9.0 inches wide x 9.1 inches deep x 3.3 inches tall (with feet).
+
+![image](https://raw.githubusercontent.com/rootscript/audio-dump/master/_LPS-images/Uptone_JS-2/JS-2_rear.jpg)
 
 **Includes:**
 
@@ -51,6 +66,8 @@ Dimensions: 9.0 inches wide x 9.1 inches deep x 3.3 inches tall (with feet).
 The choice to use a costly, custom, electrostatically shielded 100VA R-core transformer is highly beneficial to the JS-2 design.
 
 Just powering the computer, the difference—between the R-core and a toroidal transformer in the bass was shocking. And in comparisons powering a DAC or other audio-signal-handling component, the sonic benefits ranged top-to-bottom, cymbals and piano to deep bass.  Plus R-core transformers, due to the gapless construction of the core, are mechanically silent.
+
+![image](https://raw.githubusercontent.com/rootscript/audio-dump/master/_LPS-images/Uptone_JS-2/JS-2_interior_master.jpeg)
 
 **John Swenson on the benefits of a choke-filtered linear power supply:**
 
