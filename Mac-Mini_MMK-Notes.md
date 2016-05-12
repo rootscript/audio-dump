@@ -112,10 +112,13 @@ Maybe some pics will help:
 ![uptoneswenson-preprodpcb.jpg](http://www.computeraudiophile.com/attachments/f10-music-servers/9979d1389311448-why-linear-power-supply-uptoneswenson-preprodpcb.jpg)
 
 This next one was just a short test version of the Mac mini PCB. We are still dimensioning for a board with both jacks at the end that will fit in the vacant holes.
+
 ![protominikelvin.jpg](http://www.computeraudiophile.com/attachments/f10-music-servers/9980d1389311759-why-linear-power-supply-protominikelvin.jpg)
 
 A few people have PM'ed me for pictures of the chassis, so here you go:
+
 ![uptoneswensonps-chassis.jpg](http://www.computeraudiophile.com/attachments/f10-music-servers/9981d1389312343-why-linear-power-supply-uptoneswensonps-chassis.jpg)
+
 Overall dimensions are 9 inches x 9 inches x 3.25 inches tall (including the height of these really beautiful feet I found). The fit and finish of this enclosure from Japan is far nicer than anything I could find from China (I looked for months!), though it does cost a bit more. I won't be able to calculate total cost or sale price until I can send CAD files for heatsink drilling and back panel machining/printing to the chassis supplier. We hope to be in production before mid-year.
 Chris wants me to be careful about not doing commercial promotion in the forums, so I won't say much more about this. 
 
@@ -522,6 +525,8 @@ I've simultaneously powered both a computer (my Mac mini) and a DAC at the same 
 
 ---
 
+**KuroMod LPS**
+
 I just found this thread and what is so interesting is that I've already got the PCB made and the circuit is an improved version of John's power supply. It has two independent 5v outputs, each powered by an ultra low noise super regulator (4uV RMS). I have another version that is using a R-core transformer, and it does sound significantly better than the Triad transformer John has specified (much richer and deeper low bass). Here are some pics of my supply:
 
 ![image](http://www.computeraudiophile.com/attachments/f10-music-servers/11605d1396197635-why-linear-power-supply-xe2f3041.jpg)
@@ -532,9 +537,30 @@ It is the same circuit as the John Swenson LPS. Regulator is the Belleson SPJ (n
 
 [link](http://www.computeraudiophile.com/f10-music-servers/why-linear-power-supply-18929/index10.html#post310271)
 
+**KuroMod LPS components:**
+
+Triad VPS10-2500 Power Transformer (£10)
+[Power Transformer link >](http://catalog.triadmagnetics.com/item/power-transformers/-connect-world-series-power-transformers-1/vps10-2500-1)
+[Power Transformer data sheet >](http://catalog.triadmagnetics.com/Asset/VPS10-2500.pdf)
+
+Hammond 159ZJ DC Filter Choke (£20)
+[DC Filter Choke link >](http://www.hammondmfg.com/153.htm)
+
+[DC Filter Choke datasheet](http://www.mouser.com/ds/2/177/5c0032-57977.pdf)
+
+**Guessed Parts List:**
+
+- Triad VPS10-2500 Power Transformer (R-core is better, but which one?)
+- Hammond 159ZJ DC Filter Choke
+- Belleson SPJ LM??? (not sure of the details?) *2
+- 120uF 35v capacitor (not sure of type/brand)
+- 470uF ??v capacitor (not sure of type/brand)
+- Fairchild Schottky Barrier Rectifier (not sure of type, possibly FYP2010DN ?) *2
+
 Hi Alex,
 I'd avoid having the choke being so close to the toroidal transformer. The "belly" portion of a toroidal transformer emits the most magnetic flux. In my supply, I put the transformer and the choke far away as possible.
 I have done tests by putting my supply on top of a 1000va toroidal transformer and can hear the negative effect to the supply. The sound becomes more harsh and mechanical.
+Kuro
 
 In this implementation the choke is on its side, this significantly cuts down on coupling between the choke and the transformer. 
 John S.
