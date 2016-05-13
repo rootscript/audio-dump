@@ -56,10 +56,10 @@ DC Output:9V/5V Aerospace GX16-2---5.5x2.5mm/5.5x2.1mm/Molex 4PIN (For PPA Card)
 ![image](http://www.hd-plex.com/images/product/linearpsu/gallery/GX16.jpg)
 
 Old version
-![image](http://www.hd-plex.com/images/product/linearpsu/compatibility/100W.LPSU.Back-old.jpg)
+![image](https://raw.githubusercontent.com/rootscript/audio-dump/master/_LPS-images/HDPLEX-100W-LPS/100W.LPSU.Back-old.jpg)
 
 Revised version
-![image](http://www.hd-plex.com/images/product/linearpsu/compatibility/100W.LPSU.Back.jpg)
+![image](https://raw.githubusercontent.com/rootscript/audio-dump/master/_LPS-images/HDPLEX-100W-LPS/100W.LPSU.Back.jpg)
 
 ###Key Specification:
 
