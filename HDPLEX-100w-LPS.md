@@ -55,6 +55,10 @@ DC Output:19V/12V XLR---Aerospace GX16-2/7.4x5.0mm/5.5x2.5mm/5.5x2.1mm Connector
 DC Output:9V/5V Aerospace GX16-2---5.5x2.5mm/5.5x2.1mm/Molex 4PIN (For PPA Card) Connector
 ![image](http://www.hd-plex.com/images/product/linearpsu/gallery/GX16.jpg)
 
+Old version
+![image](http://www.hd-plex.com/images/product/linearpsu/compatibility/100W.LPSU.Back-old.jpg)
+
+Revised version
 ![image](http://www.hd-plex.com/images/product/linearpsu/compatibility/100W.LPSU.Back.jpg)
 
 ###Key Specification:
