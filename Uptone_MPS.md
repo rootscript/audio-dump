@@ -1,5 +1,12 @@
-### UpTone Audio REGEN Power Supply Add-On
+### UpTone Audio - Mystery Power Supply (MPS)
+**
+*Any idea when possibly the MPS is expected to ship Alex ? 9th May 2016***
 
+Don't know about shipping, but we intend to end the "mystery" of the tech and post pictures by the end of this week. Am trying to get the rest of my biz and e-mail under control first as I know there will be lots of chatter and questions.
+
+[link](http://www.computeraudiophile.com/f27-uptone-audio-sponsored/uptone-audio-regen-power-supply-add-24963/index29.html)
+
+---
 
 I guess it will be like the filter on the SqueezeUpgrade BoTWs power supply, The Squeezebooster?
 
@@ -47,3 +54,34 @@ Yes, the device will have just two "sockets"-- both 5.5mm x 2.1mm jacks. But I h
 [link](http://www.head-fi.org/t/777678/intona-high-speed-usb-isolator/60#post_12345414)
 
 If one wants to maintain total galvanic isolation when using an outboard power supply--without having to resort to batteries--the only LPS I am aware of which "floats" the DC ground (being isolated from the AC mains and chassis ground) is our own JS-2 choke-filtered, dual-output, 5-7A unit.  But at $925 it is a bit overkill for just a REGEN or the like.  Our forthcoming "mystery" 3.3/5/7V 1-amp supply will likewise be 100% isolated form the mains--both on the ground and in all ways (like a battery, but not a battery).
+
+---
+
+***I am a bit confused by your comment on this. Earlier you stated that the feed supply for MPS is irrelevant and it will perform the same if its fed from a $50 supply or a $1000 supply. So based on this why wouldn’t the feed supply be cheap ? I am sure there are reasons behind this but wanted to understand the perspective better.***
+
+Well the energizing supply the mystery LPS will come with is cheap. It's a level VI, fully certified around the world, tabletop SMPS with detachable AC power cord--the same as what comes with the REGEN (though for those who already got that supply with their REGEN or have something suitable already, we can omit it from the kit and save the buyer $15 and be kinder to the planet).
+
+**
+There is never going to be any energizing supply for our device that will affect its DC output. Period.**
+As I have explained, the ONLY reason to use any other energizing supply is if you don't want an SMPS plugged into the wall. But virtually all conventional linear supplies also put harmonics back into the house mains since they don't draw current through the whole waveform. Only a power-factor-corrected supply will be "line quiet." The choke-filtered JS-2 is the only power-factor-corrected LPS that I know of (John calculated as having a PF of about 0.97).
+
+Yet producing a small choke-filtered LPS just to be an energizing supply for our isolated device seems silly, and indeed would not be cheap (anytime you have to have a transformer, power switch, fuse, voltage selector, and inlet jack in a chassis, there is labor and expense)--and we don't have Chinese factory scale.
+
+But John had [another] radical idea for a highly AC line quiet PFC supply with rather few parts, and that is the follow-on piece he mentioned. While its DC output will be modestly quiet, that is not the goal--since our forthcoming DC-DC LPS doesn't care about that. Rather it is about kicking less back into the wall mains than any other LPS or SMPS (again, our big JS-2 being the exception).
+Cost for that piece will be all about the transformer, the case, and if I can find the right combination of AC inlet/switch/fuse/voltage selector parts that are all PCB mount as any hand wiring adds labor and cost.
+
+Hope that puts things into a little perspective. And please don't ask about the when for that follow-on piece. We have a lot on out plate now and I just don't know. Frankly, since I use 1:1 isolation transformers for my front-end gear, and plug any SMPS directly into the wall before those transformers, my AC system is not terribly sensitive to SMPS high frequency noise and spikes.
+
+---
+
+***Good question. I am also interested to know if the MPS is still better (maybe because of the newer tech ?) than the JS-2 or not, irrespective of the price ?***
+
+Both supplies were designed with the same output criteria so they should behave very much the same. The MPS will have slightly lower noise, but for most applications this is not very important. 
+
+The big difference is that the output of an MPS is completely isolated, two of them are fully galvanically isolated from each other, the two outputs of a JS2 share a common ground. That common ground is isolated from chassis ground (ground pin on the AC plug) but common between the two outputs.
+
+Thus if you feed a REGEN or microRendu AND a DAC which includes galvanic isolation, with a JS-2 you are bypassing the isolation in the DAC. With two MPSs you preserve that isolation. 
+
+The isolation of the MPS is still there even if they are both fed from the same feed supply. 
+
+John S.
