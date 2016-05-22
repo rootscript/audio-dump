@@ -224,12 +224,13 @@ I've been thinking more about the UP Board and I think it could be a great solut
 What will be really interesting is when I try HQPlayer and use the Pi3 or UP Board and SPD as the NAA. I am going to load up HQP on an ultra portable i3 laptop I have and compare that to my tweaked pc.
 
 
+[link](http://www.superbestaudiofriends.org/index.php?threads/raspberry-pi-i2s-to-spdif-hat.1990/page-10)
 
 ---
 
 Pi2Media 503SPD2
 
-Pi2Design 503DAC1
+Pi2Design 503DAC1 [link](http://www.pi2design.com/store/p7/503DAC1_-_Digital-to-Analog_Converter.html)
 
 503HTA
 
