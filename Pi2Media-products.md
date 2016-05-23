@@ -1,17 +1,34 @@
 
-Pi2Media 503SPD1
+#Pi2Media 503SPD1 [link to start of the forum post](http://www.superbestaudiofriends.org/index.php?threads/raspberry-pi-i2s-to-spdif-hat.1990/)
 
-a Pi hat with I2S to SPDIF. Sounds like a Digi+ right? But they wanted a couple of items done differently. First it had to have transformer coupled coax. Second was the ability to supply 3.3V and 5V from an external linear supply, thus decoupling from the Pi supply. Third, high quality clocks were mentioned. Finally someone else mentioned it would be great to run the digi+ software "out of the box".
+> A Pi hat with I2S to SPDIF. Sounds like a Digi+ right? But they wanted a couple of items done differently. First it had to have transformer coupled coax. Second was the ability to supply 3.3V and 5V from an external linear supply, thus decoupling from the Pi supply. Third, high quality clocks were mentioned. Finally someone else mentioned it would be great to run the digi+ software "out of the box".
+> 
+> 1) WM8804 with GPIO selectable 24.5476Mhz/22.5792Mhz Clock input
+> 
+> 2) Clock are very low noise using NDK2520SD series. Not as low as Crytek's best, but not $20 each either!
+> 
+> 3) WM8804 runs in Master Mode, Pi in Slave mode so BCLK and LRCLK are very low jitter
+> 
+> 4) Transformer coupled Coax and Optical SPDIF output
+> 
+> 5) LT3042 Ultra-Low Noise, High PSRR LDO for SPDIF PLL and Crystal supply
+> 
+> 6) Jumper to isolate PI 5V from Hat 5V with 2.5mm barrel jack for external 5V input
+> 
+> 7) 4-Layer PCB with filtered ground from Pi
+> 
+> That's all the good stuff. I don't provide for external 3V since I have the LT3042 there. The one downside is that in order to switch the clock input between the two frequencies, we need to add SW to the various audio platforms. It's actually easy to do, but it means we'll have to provide the modified platforms to our users until it can be integrated into the next releases. We could make version that has a single 27Mhz clock so the Digi+ code could run without change. The main issue with that is the increased jitter from using the WM8804 internal PLL to create the proper frequencies.
+> [Michael Kelly]
 
-1) WM8804 with GPIO selectable 24.5476Mhz/22.5792Mhz Clock input
-2) Clock are very low noise using NDK2520SD series. Not as low as Crytek's best, but not $20 each either!
-3) WM8804 runs in Master Mode, Pi in Slave mode so BCLK and LRCLK are very low jitter
-4) Transformer coupled Coax and Optical SPDIF output
-5) LT3042 Ultra-Low Noise, High PSRR LDO for SPDIF PLL and Crystal supply
-6) Jumper to isolate PI 5V from Hat 5V with 2.5mm barrel jack for external 5V input
-7) 4-Layer PCB with filtered ground from Pi
+This is great Micheal!
+I was going to say in the other thread that external 5V as the only powering way for the hat could have been a deal breaker for someone but you made a very smart move putting a jumper there.
 
-That's all the good stuff. I don't provide for external 3V since I have the LT3042 there. The one downside is that in order to switch the clock input between the two frequencies, we need to add SW to the various audio platforms. It's actually easy to do, but it means we'll have to provide the modified platforms to our users until it can be integrated into the next releases. We could make version that has a single 27Mhz clock so the Digi+ code could run without change. The main issue with that is the increased jitter from using the WM8804 internal PLL to create the proper frequencies.
+As for the double clock... So many people would of course be happier with the liberty to try other platforms without waiting for you to provide the software. Thus the single clock looks like the better option for compatibility.
+I say screw this. If we want compatibility many of us already have or can buy the digi or his chinese copy the digipi. I say go for performance with the double clock and be sure to cover the main platforms in the beginning (Rune, Moode, Volumio) and then reach out for wider software integration.
+
+Of course if you want to make a single clock version as well to differentiate your offer, that would be good too.
+[Vastx]
+
 
 The single clock option will install a single 27Mhz instead of the pair of audio clocks. The Digi+ software expects this. You will still gets you the isolated coax and the very low noise 3V LDO (LT3042 thanks to you Vastx!). I expect that even running form the Pi 5V the performance will be very good.
 
@@ -165,54 +182,58 @@ That's why you test and try new things. I would be inclined to think splitting t
 THe 503DAC1 is the equivalent of the DIGI+ AND the DAC+. 
 
 
-Now that you mention the UP-Board. Your 503SPD1 DAC Hat board has REALLY caught my attention. I am dreaming of getting Roon Server running using this Pi2Media 503SPD1 DAC Hat & the UP board.
+> Now that you mention the UP-Board. Your 503SPD1 DAC Hat board has REALLY caught my attention. I am dreaming of getting Roon Server running using this Pi2Media 503SPD1 DAC Hat & the UP board.
+> 
+> There is a Python library used on Raspberry Pi platforms to control GPIO pins.
+> https://up-community.org/UpWiki/index.php/RPi.GPIO
+> 
+> In addition to GPIO control, it is also used by many other libraries to query the Raspberry Pi hardware version as header pin layouts differed between certain versions.
+> 
+> "As the UP board has a similar header pin layout to the Raspberry Pi 2, we have created a port of the RPi.GPIO library for UP. This allows many existing Python scripts developed for Raspberry Pi to be used on UP also."
+> 
+> As the UP board has x86 CPU it should be able to be used with Roon Labs Server software. Without an x86 processor you can only run Roon Bridge.
+> https://roonlabs.com/downloads.html
+> 
+> The Up board appears to have the same form factor as the Rasberry Pi & the same 40 pin connector & pin definition GPIO header, and now with RPi.GPIO library for UP, maybe we might be closer to IS2 connected DAC with a reasonably fast CPU, RAM, storage etc...
+> 
+> I saw quite a few people in this thread talking about a 'cost no object' version, I would love to have aversion available like that that was compatible with the UP-Board.
+> http://www.up-board.org/
+> 
+> ![image](https://raw.githubusercontent.com/rootscript/audio-dump/master/Pi-types/UP-board/01_UPBoardTopView02WithSpecs11.png)
+> [Carlos]
 
-There is a Python library used on Raspberry Pi platforms to control GPIO pins.
-https://up-community.org/UpWiki/index.php/RPi.GPIO
+Carlos I like your thinking! This Up Board would be great run Roon or Minimserver and other software tweaks like Jplay, Audiophile Optimizer, etc. This little guy could easily replace my current Atom D525 PC that has a fan which I am not happy with. Plus this will take up less space and require less power. I wonder if this has enough horsepower to run Server 
+oe]> 
 
-In addition to GPIO control, it is also used by many other libraries to query the Raspberry Pi hardware version as header pin layouts differed between certain versions.
+> Pi 2 Design, my company, already has a relationship with up-board. They are re-selling our 502SSD Storage Hat. The early versions of the up-board did not have the I2S bus enabled. Not sure why, but that's what they told us after we spent a few hours trying to get our 503DAC1 running. However, we are told the final rev will have it. As soon as we get one we'll test and all our hats will be tested on the ard.
+> 
+> As for ROON we are currently working with them to add support for our 503HTA Hybrid Tube amp, and will add support for all our audio hats, including 503SPD1 and 2. Of great excitement to us regarding Roon is getting support in place for our up-coming 35W/channel Class-D Amp w/HP out hat. Not Audiophile level, but great for dorm rooms, game rooms etc [Michael Kelly]
 
-"As the UP board has a similar header pin layout to the Raspberry Pi 2, we have created a port of the RPi.GPIO library for UP. This allows many existing Python scripts developed for Raspberry Pi to be used on UP also."
+*Then came an interesting post from Abartels:*
 
-As the UP board has x86 CPU it should be able to be used with Roon Labs Server software. Without an x86 processor you can only run Roon Bridge.
-https://roonlabs.com/downloads.html
-
-The Up board appears to have the same form factor as the Rasberry Pi & the same 40 pin connector & pin definition GPIO header, and now with RPi.GPIO library for UP, maybe we might be closer to IS2 connected DAC with a reasonably fast CPU, RAM, storage etc...
-
-I saw quite a few people in this thread talking about a 'cost no object' version, I would love to have aversion available like that that was compatible with the UP-Board.
-http://www.up-board.org/
-
-![image](https://raw.githubusercontent.com/rootscript/audio-dump/master/Pi-types/UP-board/01_UPBoardTopView02WithSpecs11.png)
-
-Carlos I like your thinking! This Up Board would be great run Roon or Minimserver and other software tweaks like Jplay, Audiophile Optimizer, etc. This little guy could easily replace my current Atom D525 PC that has a fan which I am not happy with. Plus this will take up less space and require less power. I wonder if this has enough horsepower to run Server R2?
-
-Pi 2 Design, my company, already has a relationship with up-board. They are re-selling our 502SSD Storage Hat. The early versions of the up-board did not have the I2S bus enabled. Not sure why, but that's what they told us after we spent a few hours trying to get our 503DAC1 running. However, we are told the final rev will have it. As soon as we get one we'll test and all our hats will be tested on the up-board.
-
-As for ROON we are currently working with them to add support for our 503HTA Hybrid Tube amp, and will add support for all our audio hats, including 503SPD1 and 2. Of great excitement to us regarding Roon is getting support in place for our up-coming 35W/channel Class-D Amp w/HP out hat. Not Audiophile level, but great for dorm rooms, game rooms, etc.
-
-
-I have PI2 and Pi3 and using HifiBerry DAC+ Pro. I use I2S ONLY
-
-VERY IMPORTANT:
-
-I did mod one of my DAC+Pro's with NDK NZ2520SD clocks, but that sounded a lot LESS open than XpressO TCXO's !!!!
-Please use XpressO Ultra TCXO's, they are not that expensive.
-
-I have my own wishlist, after testing and modifying a lot on DDC's I came to the conclusion that it is very important to:
-
-1- Isolate ground completely from PI
-2- Isolate 5V completely from PI - Include 5V header
-3- Isolete 3.3V completely from PI - Include 3.3V header
-4- Isolate TCXO's 3.3V completely - include 3.3-5V header for TCXO's
-5- Include I2S header on PCB !!!
-6- Put TCXO'x in DIL14 header for future purposes, possibility to exchange TCXO's is a MUST HAVE
-
-Point 4 is also VERY important because this way you have ability to use 5V OCXO's if you plan to use them,
-most of them need 5V, so if external power header for XO's exist, you can choose 3.3V or 5V.
-
-Isolating power from XO's is very important, this gives a much bigger soundstage with a black background!
-
-Hope you will consider my recommendations!
+> I have PI2 and Pi3 and using HifiBerry DAC+ Pro. I use I2S ONLY
+> 
+> VERY IMPORTANT:
+> 
+> I did mod one of my DAC+Pro's with NDK NZ2520SD clocks, but that sounded a lot LESS open than XpressO TCXO's !!!!
+> Please use XpressO Ultra TCXO's, they are not that expensive.
+> 
+> I have my own wishlist, after testing and modifying a lot on DDC's I came to the conclusion that it is very important to:
+> 
+> 1- Isolate ground completely from PI
+> 2- Isolate 5V completely from PI - Include 5V header
+> 3- Isolete 3.3V completely from PI - Include 3.3V header
+> 4- Isolate TCXO's 3.3V completely - include 3.3-5V header for TCXO's
+> 5- Include I2S header on PCB !!!
+> 6- Put TCXO'x in DIL14 header for future purposes, possibility to exchange TCXO's is a MUST HAVE
+> 
+> Point 4 is also VERY important because this way you have ability to use 5V OCXO's if you plan to use them,
+> most of them need 5V, so if external power header for XO's exist, you can choose 3.3V or 5V.
+> 
+> Isolating power from XO's is very important, this gives a much bigger soundstage with a black background!
+> 
+> Hope you will consider my recommendations!
+> [Abartels]
 
 
 Alright! Now we are talking! Back to the audiophool/audiophile version I was talking about early on. I am in favor of keeping the design of the SPD boards the same but use higher quality components like clocks as mentioned by @Eugene du Toit. However. I have found in audio getting the best sound (highly subjective by the way) is less about having the absolute best technology but more about implementation, paying particular attention to noise, vibration, etc. 
@@ -228,15 +249,25 @@ What will be really interesting is when I try HQPlayer and use the Pi3 or UP Boa
 
 ---
 
-Pi2Media 503SPD2
+#Pi2Media 503SPD2
 
-Pi2Design 503DAC1 [link](http://www.pi2design.com/store/p7/503DAC1_-_Digital-to-Analog_Converter.html)
+503SPD2 is BNC out with isolation transformer, plus balanced XLR out also with isolation transformer.
 
-503HTA
+![image](http://www.pi2design.com/uploads/4/8/5/3/48531975/7023075_orig.jpg)
+
+---
+
+#Pi2Design 503DAC1 [link](http://www.pi2design.com/store/p7/503DAC1_-_Digital-to-Analog_Converter.html)
+
+---
+
+#503HTA
 
 Hybrid Tube Amp for the Raspberry Pi
 
-504DAC1
+---
+
+#504DAC1
 
 pi-Zero sized DAC, Almost the same as the 503DAC1
 
