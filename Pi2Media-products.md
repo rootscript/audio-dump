@@ -30,55 +30,64 @@ Of course if you want to make a single clock version as well to differentiate yo
 [Vastx]
 
 
-The single clock option will install a single 27Mhz instead of the pair of audio clocks. The Digi+ software expects this. You will still gets you the isolated coax and the very low noise 3V LDO (LT3042 thanks to you Vastx!). I expect that even running form the Pi 5V the performance will be very good.
-
-You know, the more I think about it, the double clock is something everyone should be able to try, even if they want start with the 27Mhz in order to run the stock drivers. Heck, it's not like another crystal is all that expensive! So, new feature, three clocks: 27Mhz digi+ clone, plus dual 24.5476/22.5792 for no PLL operation, but with a new driver.
-
-![image](http://www.pi2design.com/uploads/4/8/5/3/48531975/2867363_orig.jpg)
-
-Vastx - I must give you full credit for the LT3042. I saw you mention it in your Digi+ thread. I have a couple of TI parts I've used when I need high PSRR and I've used the ADP150 for low noise. But the LT3042 combines the best of both. Thanks for that!
-
-As for the clocking, let me think about it. I am pretty confident that as is, it's going to be very solid, but I also understand the opportunity it might represent.
-
-Link to schematics for the brave of you who know how to read schematics.  ;)
-
-http://www.pi2design.com/uploads/4/8/5/3/48531975/503spd1_sch_p1.pdf
-
-It's pretty straightforward. The pullup and pulldown resistors on CKSEL0-3 select the 27Mhz by default. One we make the patches for RUNE and Volumio we'll have the ability to switch the right clock on the fly. The code to change the Wolfson WM8804 PLL is already there, so we just stick our changes in that code to select the actual clock instead of changing the PLL multiply/divide constants. Easy, right?
+> The single clock option will install a single 27Mhz instead of the pair of audio clocks. The Digi+ software expects this. You will still gets you the isolated coax and the very low noise 3V LDO (LT3042 thanks to you Vastx!). I expect that even running form the Pi 5V the performance will be very good.
+> 
+> You know, the more I think about it, the double clock is something everyone should be able to try, even if they want start with the 27Mhz in order to run the stock drivers. Heck, it's not like another crystal is all that expensive! So, new feature, three clocks: 27Mhz digi+ clone, plus dual 24.5476/22.5792 for no PLL operation, but with a new driver.
+> 
+> ![image](http://www.pi2design.com/uploads/4/8/5/3/48531975/2867363_orig.jpg)
+> 
+> Vastx - I must give you full credit for the LT3042. I saw you mention it in your Digi+ thread. I have a couple of TI parts I've used when I need high PSRR and I've used the ADP150 for low noise. But the LT3042 combines the best of both. Thanks for that!
+> 
+> As for the clocking, let me think about it. I am pretty confident that as is, it's going to be very solid, but I also understand the opportunity it might represent.
+> 
+> Link to schematics for the brave of you who know how to read schematics.  ;)
+> 
+> http://www.pi2design.com/uploads/4/8/5/3/48531975/503spd1_sch_p1.pdf
+> 
+> It's pretty straightforward. The pullup and pulldown resistors on CKSEL0-3 select the 27Mhz by default. One we make the patches for RUNE and Volumio we'll have the ability to switch the right clock on the fly. The code to change the Wolfson WM8804 PLL is already there, so we just stick our changes in that code to select the actual clock instead of changing the PLL multiply/divide constants. Easy, right?
+> [Michael Kelly]
 
 Quick question - Does anyone have interest in SPDIF in? The WM8004 has a SPDIF input that I am currently not using. If so, would Coax or Optical be more useful? Or both? With Coax what research I did seems to disagree as to whether or not it should be transformer isolated.
+[Michael Kelly]
 
  the spdif hat designed by Micheal, it is very similar to the digi+, very similar. But it has been designed to maximize the performance: better voltage regulator, possibility to run external power, better clock(s). It has more potential than the digi+. Theoretically it SHOULD be better.
 
-I added a SPDIF coax input with transformer. I also put some 0 ohm resistors to allow us to build without the transformers. Like Digi+ we'll offer with and without transformer versions. Price will be $39 without and $49 with. Although we have much better power supply specs and the better clocking option, we're just $5USD more than them. As I said before, our pricing is based on our cost. And these just don't cost that much!
+> I added a SPDIF coax input with transformer. I also put some 0 ohm resistors to allow us to build without the transformers. Like Digi+ we'll offer with and without transformer versions. Price will be $39 without and $49 with. Although we have much better power supply specs and the better clocking option, we're just $5USD more than them. As I said before, our pricing is based on our cost. And these just don't cost that much!
+> [Michael Kelly]
 
 What did you decide about the clock upgrade pcb layout?
+[Vastx]
 
-I stayed with the small SMT clock selected by GPIO. I really feel the NDK2520SD clocks are such a big upgrade from the PLL, while being better than much more expensive Crystek parts. See this from DIYINHK on the hifiduino web site:
-
-![image](https://hifiduino.files.wordpress.com/2014/01/ndkphasenoise.png?w=595&h=387)
-
-![image](https://hifiduino.files.wordpress.com/2014/01/cchd957.jpg?w=595&h=541)
-
-While there is room for improvement, I just feel it's about as good as you can get for the money.
+> I stayed with the small SMT clock selected by GPIO. I really feel the NDK2520SD clocks are such a big upgrade from the PLL, while being better than much more expensive Crystek parts. See this from DIYINHK on the hifiduino web site:
+> 
+> ![image](https://hifiduino.files.wordpress.com/2014/01/ndkphasenoise.png?w=595&h=387)
+> 
+> ![image](https://hifiduino.files.wordpress.com/2014/01/cchd957.jpg?w=595&h=541)
+> 
+> While there is room for improvement, I just feel it's about as good as you can get for the money.
+> Back in the days of my 68 Plymouth Roadrunner we had an 80/20 rule: that last 20% of performance cost you 80% of the total!
+> [Michael Kelly]
 
 I was wondering if this board will need 3.3V? From reading the description only 5V is needed? I hope so because that would make things easier.
 
-The 3.3V is generated by an on-board low noise LDO. It has a very high (PSRR (Power Supply Rejection Ratio) over 80db through the entire audio range. That means any noise on the 5V rail is reduced by a factor of 80db+. Coupled with the high frequency filtering we add on the 3.3V line, Power Supply noise should be virtually non-existent.
-
-Adding you own low noise 5V supply will improve the noise and jitter as will using high quality coax cables. Whether they are audible improvements..... we shall see!
-
+> The 3.3V is generated by an on-board low noise LDO. It has a very high (PSRR (Power Supply Rejection Ratio) over 80db through the entire audio range. That means any noise on the 5V rail is reduced by a factor of 80db+. Coupled with the high frequency filtering we add on the 3.3V line, Power Supply noise should be virtually non-existent.
+> 
+> Adding you own low noise 5V supply will improve the noise and jitter as will using high quality coax cables. Whether they are audible improvements..... we shall see!
+> 
+> As Vastx said earlier, the board will have to tested to see if it is better than Digi+. Vastx, Fraggle and PhilMorgan have agreed to be my test dummies. Their feedback will be critical to point me in the right direction as an engineer.
+> [Michael Kelly]
 
 I need to look at the specs of the LT3042. I have some LT1963 based regulators that have very good performance. Also, in the past I have investigated Belleson regulators too which have very very good specs.
 
-I think you'll be happy with the LT3042! PSRR of the LT3042 is more than 80db 10Hz to 60Khz while the LT1963 is 55db at 10Khz drops to 45db at 20Khz. Noise from the LT3042 is 0.8 micro-volts RMS from 10Hz to 100Khz while the LT1963 is 40 micro-volts RMS from 10Hz to 100Khz, or 50 times higher!
+> I think you'll be happy with the LT3042! PSRR of the LT3042 is more than 80db 10Hz to 60Khz while the LT1963 is 55db at 10Khz drops to 45db at 20Khz. Noise from the LT3042 is 0.8 micro-volts RMS from 10Hz to 100Khz while the LT1963 is 40 micro-volts RMS from 10Hz to 100Khz, or 50 times higher!
+> 
+> By default the 27Mhz crystal will be enabled and any player that supports Digi+ should just work. To access the low noise clocks we make a few, small modifications to the sound driver in Linux and then we build the player SW on top of that modified Linux. We will submit our changes to the Linux codebase and then, when the player supplier builds their latest version our code will be in there. But that could take 3-6 months depending upon how often the player software is updated by the vendor. Until then you will need to either get the modified player from us, or the modified Linux driver and build the player yourself. That's why we're only looking at supporting Volumio, RUNE Audio and OSMC (OpenElec). But, as I said, once these changes are in the linux base, any player that is updated will get the changes.
+> [Michael Kelly]
 
-By default the 27Mhz crystal will be enabled and any player that supports Digi+ should just work. To access the low noise clocks we make a few, small modifications to the sound driver in Linux and then we build the player SW on top of that modified Linux. We will submit our changes to the Linux codebase and then, when the player supplier builds their latest version our code will be in there. But that could take 3-6 months depending upon how often the player software is updated by the vendor. Until then you will need to either get the modified player from us, or the modified Linux driver and build the player yourself. That's why we're only looking at supporting Volumio, RUNE Audio and OSMC (OpenElec). But, as I said, once these changes are in the linux base, any player that is updated will get the changes.
-
-
-can HATs be used with heatsinks attached to the raspberry pi? the type that come with the canakit bundles?
+Can HATs be used with heatsinks attached to the raspberry pi? the type that come with the canakit bundles?
 
 We use 18mm standoffs on our hats to insure clearance. We support both the Up-Board and the Odroid with some hats, and they have even bigger heatsinks.
+[Michael Kelly]
 
 
 YES! Thats what I'm talking about! Audiophile (or audiophool) version please! 110ohm AES and 75ohm BNC would be pretty cool.
@@ -209,7 +218,7 @@ oe]>
 > 
 > As for ROON we are currently working with them to add support for our 503HTA Hybrid Tube amp, and will add support for all our audio hats, including 503SPD1 and 2. Of great excitement to us regarding Roon is getting support in place for our up-coming 35W/channel Class-D Amp w/HP out hat. Not Audiophile level, but great for dorm rooms, game rooms etc [Michael Kelly]
 
-*Then came an interesting post from Abartels:*
+*Then came a very detailed/specific post from Abartels (that may have slipped through the long thread):*
 
 > I have PI2 and Pi3 and using HifiBerry DAC+ Pro. I use I2S ONLY
 > 
