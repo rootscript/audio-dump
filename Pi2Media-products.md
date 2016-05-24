@@ -256,6 +256,62 @@ What will be really interesting is when I try HQPlayer and use the Pi3 or UP Boa
 
 [link](http://www.superbestaudiofriends.org/index.php?threads/raspberry-pi-i2s-to-spdif-hat.1990/page-10)
 
+
+
+
+
+> The 503HTA supports analog in from external sources. The I2S bus is available on the GPIO connector and I have finished an XMOS based USB to I2S that takes any of our Audio hats and truns them into USB DAC's or DAC/AMP's. But, there is no S/PDIF in option at this time.
+> 
+> As for "cost no object" design, I do not start with a fixed dollar amount. However, I do a sort of self filtering where I weigh the merits of each item against it's cost. Ultimately I do have to put it onto the market and compete with other, perhaps lesser, perhaps better, products at their price points. For the SPD1/2 I honestly don't see what else would make sense. We have high PSRR LDO's, low phase noise clocks, isolated BNC and XLR plus external 5V input. I am always open to suggestion, as you have noted from the back and forth in this forum. So please do not hold back! What would make this better? Blinky lights? Chrome fins? Bedazzling?  ;)
+
+[Michael Kelly]
+
+
+> Thanks for your reply Michael, I guess I'm just trying to assess what has been discussed already in this thread in order to look for areas that might be available for improvement.
+> 
+> So just to recap (based on my very VERY limited & lacking understanding (Google is my best friend)):
+> 
+> - high PSRR LDO's (Power Supply Rejection Ratio in Low-dropout regulators)
+> so these DC linear voltage regulators will keep external noise down, and will be effected by
+> the internal reference voltage
+> the error amplifier
+> and some of the methods to reduce LDO noise are:
+> Filtering the reference (if an external capacitor is used, what quality options are there?)
+> reducing the noise gain of the error amplifier
+> - low phase noise clocks
+> So there are 3 clocks on the 503SPD1/2, what do each these do?,
+> so one of these clocks bypasses the use of the jittery/noisey clock on the Rasberry Pi?
+> In terms of the clocks used, do these need to be soldered to the board, or are there sockets available so that they could be swapped out ? (if someone wanted to try something else, a bit like 'tube rolling' or 'op amp rolling')
+> (please remember that I'm an idiot ;) - i guess that it isn't just about the quality of the components used, but how they are implented)
+> 
+> - isolated BNC and XLR
+> If people require RCA, then a BNC to RCA cable/adaptor could be used
+> I think that 'WM8004 has a SPDIF input' was also mentioned earlier, so could we input a CD player (or another source) via TosLink?
+> Also can you explain a little (for simple people like myself) what Transformer coupled outputs are, does this option require us to do/have something else?
+> 
+> - external 5V input
+> So we can feed the 503SPD1/2 from a Linear Power Supply (LPS), which will in turn feed the Rasberry Pi, or we can switch the Jumper to isolate PI 5V from Hat 5V, and feed them both separately.
+> 
+> I hope you don't mind recapping a few details for the dumb ass users like myself? :)
+> I do hope that something useful might come from my comments, particularly because my perspective is a little naive; sometimes it is useful having an idiot in the room !
+
+[Carlos]
+
+
+> High PSRR LDO - The LT3042 has a PSRR of 80db+ up to 100Khz. This insure 5V power supply noise does not get to the 3.3V rail that powers the WM8805 S/PDIF Transmitter. For example if you had 100mv of ripple/noise on the 5V supply (fairly high, but not uncommon for a switching supply) it would be reduced to 6 uV on the 3.3V side! That's micro-volts! At this point it simply can't affect the digital chain. If this was powering a DAC I would add filtering to the LDO feedback which might reduce it by another 20-30%.
+> 
+> Low Phase Noise Clocks - There are three clocks. One is 27Mhz feeding the WM8804 internal PLL. This one is used by default when you run any SW that supports the Digi+. This is not a particularly low noise clock, but still higher quality than the Digi+. The other clocks are NDK NZ25420SD and are used to drive the I2S clocks directly, without the PLL. This greatly reduces noise, but requires that we modify the software to both select the right one (22.5792 for 44.1Khz derived audio and 24.576Mhz for 48Khz based audio, as well as set the PLL in bypass mode and set the right divider for the actual sample rate (48/96/192Khz or 44.1/88.2/176.4Khz).
+> 
+> An important distinction between power supply noise and clock phase noise. PS noise rides on the high and lows of our ideal square wave that is our clock. Phase noise or jitter, affects the edges where the clock transitions from high to low and vice-versa. When the clock is essentially moving in time, the down stream S/PDIF devices have trouble locking onto the data stream. The nature of S/PDIF makes this worse because it does not actually supply a separate clock. It is embedded in the data stream and has to be "decoded" by the receiving device. If it locks to the stream and then the edges shift, it can incorrectly decode data, or even lose lock altogether.
+> 
+> Isolated BNC/XLR - The primary use of isolation is to insure that each side of your audio system (transmitter and receiver) accurate communicate those important bits. Isolation insures there is no ground voltage difference that could cause the receiver to "misinterpret a high as a low or vice versa. Ground differences between systems can easily be 100's of millivolts. That might represent more than 20% of the actual signal strength the receive gets.Copper, as opposed to fiber optical, can also have external noise "imposed" imposed on it due to high strength magnetic fields, such as those around speakers or power amps. Balanced XLR insures this noise, which is imposed on both the plus and minus (AKA common mode noise) is easily filtered out by the receiver that only counts a bit when it sees the plus and minus are opposite.
+> 
+> External 5V Input - As clean as our 3.3V can be using the LT3042, providing the cleanest 5V possible certainly won't hurt. Honestly, this one is the most questionable to me. But I am prepared to be wrong!
+> 
+> Bottom, line is that getting the data to the receiver with 100% of the bits and an accurate clock are the only job we have. Nothing else matters!
+
+[Michael Kelly]
+
 ---
 
 #Pi2Media 503SPD2
